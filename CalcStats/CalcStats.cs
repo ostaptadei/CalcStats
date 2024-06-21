@@ -6,7 +6,7 @@ namespace CalcStatsKata
     {
         private int[] _numberSequence;
 
-        public int Length => throw new NotImplementedException();
+        public int Length => _numberSequence.Length;
         public CalcStats(int[] numberSequence)
         {
             _numberSequence = numberSequence;
@@ -14,23 +14,41 @@ namespace CalcStatsKata
 
         public int Min()
         {
-            throw new NotImplementedException();
+            int min = _numberSequence[0];
+            for (var i = 1; i < _numberSequence.Length; i++)
+            {
+                if (min > _numberSequence[i])
+                    min = _numberSequence[i];
+            }
+            return min;
         }
 
         public int Max()
         {
-            throw new NotImplementedException();
+            int max = _numberSequence[0];
+            for (var i = 1; i < _numberSequence.Length; i++)
+            {
+                if (max < _numberSequence[i])
+                    max = _numberSequence[i];
+            }
+            return max;
         }
 
         private int Sum()
         {
-            throw new NotImplementedException();
+            var sum = 0;
+            foreach (var item in _numberSequence)
+            {
+                sum += item;
+            }
+
+            return sum;
         }
 
         public int Average()
         {
-            throw new NotImplementedException();
+            var sum = Sum();
+            return sum / Length;
         }
     }
 }
-
